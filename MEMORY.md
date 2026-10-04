@@ -11,8 +11,8 @@
 | Field | Value |
 |---|---|
 | Last updated | 2026-10-04 |
-| Current phase | Phase 0 — Setup & Planning (not started) |
-| Next task | `P0-01` Initialise repository & folder structure |
+| Current phase | Phase 0 — Setup & Planning (in progress) |
+| Next task | `P0-02` Python environment |
 | Active model | none (`models/CURRENT` does not exist yet) |
 | Best val ROC-AUC so far | — |
 | Blockers | Power BI platform choice pending (`P0-08`); UI design references not yet supplied |

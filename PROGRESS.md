@@ -10,7 +10,7 @@
 
 | Phase | Week | Tasks | Done | Status | % |
 |---|---|---|---|---|---|
-| P0 Setup & Planning | 1 | 10 | 0 | ⬜ | 0% |
+| P0 Setup & Planning | 1 | 10 | 1 | 🟨 | 10% |
 | P1 Ingestion & SQL | 1 | 7 | 0 | ⬜ | 0% |
 | P2 Cleaning & Quality | 2 | 7 | 0 | ⬜ | 0% |
 | P3 EDA & Statistics | 3 | 10 | 0 | ⬜ | 0% |
@@ -19,9 +19,9 @@
 | P6 Scoring, Views & API | 6 | 9 | 0 | ⬜ | 0% |
 | P7 Power BI + Frontend | 7 | 9 | 0 | ⬜ (7B ⛔ awaiting designs) | 0% |
 | P8 Testing, Report & Viva | 8 | 9 | 0 | ⬜ | 0% |
-| **Total** | | **78** | **0** | | **0%** |
+| **Total** | | **78** | **1** | | **1%** |
 
-**Overall:** `[░░░░░░░░░░░░░░░░░░░░] 0%`
+**Overall:** `[█░░░░░░░░░░░░░░░░░░░] 1%`
 
 ### Key results (fill as they become available)
 | Metric | CV (train) | Validation | Test (final, once) |
@@ -41,7 +41,7 @@
 ## Phase 0 — Setup & Planning (Week 1: Oct 05 – Oct 07)
 | ✓ | ID | Task | Date | Notes |
 |---|---|---|---|---|
-| ⬜ | P0-01 | Initialise repo & folder structure | | |
+| ✅ | P0-01 | Initialise repo & folder structure | 2026-10-04 | Commit 13842d6; tree & .gitignore created |
 | ⬜ | P0-02 | Python environment | | |
 | ⬜ | P0-03 | PostgreSQL 16 | | |
 | ⬜ | P0-04 | Node.js & tooling | | |
