@@ -47,3 +47,8 @@ desktop.ini
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
+
+# Local study & presentation guides (not committed/pushed)
+docs/TEACHER_EXPLANATION_GUIDE.md
+docs/OPERATIONAL_FLOW.md
+
