@@ -10,13 +10,13 @@
 
 | Field | Value |
 |---|---|
-| Last updated | 2026-10-04 |
+| Last updated | 2026-10-05 |
 | Project name | **DISCHARGE** (Diabetic Inpatient Stratification and Clinical Decision-Support System) |
 | Repository | `https://github.com/adarzhpathade/DISCHARGE` (branch `main`) |
 | Dev OS | **Windows** (pwsh). Native Power BI Desktop available directly |
 | Current phase | Phase 0 — Setup & Planning (in progress) |
-| Completed tasks | `P0-01` Initialise repository & folder structure (commit `30847d2`, pushed to GitHub) |
-| Next task | `P0-02` Python environment |
+| Completed tasks | `P0-01` Initialise repository & folder structure, `P0-02` Python environment (`.venv`, `requirements.txt`, `pyproject.toml`, editable install verified) |
+| Next task | `P0-03` PostgreSQL 16 |
 | Active model | none (`models/CURRENT` does not exist yet) |
 | Best val ROC-AUC so far | — |
 | Blockers | UI design references not yet supplied (`P7-05`) |
