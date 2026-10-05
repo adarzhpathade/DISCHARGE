@@ -10,7 +10,7 @@
 
 | Phase | Week | Tasks | Done | Status | % |
 |---|---|---|---|---|---|
-| P0 Setup & Planning | 1 | 10 | 4 | 🟨 | 40% |
+| P0 Setup & Planning | 1 | 10 | 5 | 🟨 | 50% |
 | P1 Ingestion & SQL | 1 | 7 | 0 | ⬜ | 0% |
 | P2 Cleaning & Quality | 2 | 7 | 0 | ⬜ | 0% |
 | P3 EDA & Statistics | 3 | 10 | 0 | ⬜ | 0% |
@@ -19,9 +19,9 @@
 | P6 Scoring, Views & API | 6 | 9 | 0 | ⬜ | 0% |
 | P7 Power BI + Frontend | 7 | 9 | 0 | ⬜ (7B ⛔ awaiting designs) | 0% |
 | P8 Testing, Report & Viva | 8 | 9 | 0 | ⬜ | 0% |
-| **Total** | | **78** | **4** | | **5%** |
+| **Total** | | **78** | **5** | | **6%** |
 
-**Overall:** `[█░░░░░░░░░░░░░░░░░░░] 5%`
+**Overall:** `[██░░░░░░░░░░░░░░░░░░] 6%`
 
 ### Key results (fill as they become available)
 | Metric | CV (train) | Validation | Test (final, once) |
@@ -48,7 +48,7 @@
 | ✅ | P0-05 | Download dataset | 2026-10-05 | 101,766 encounters; diabetic_data.csv sha256: 0689e7ec...; IDs_mapping.csv sha256: f1bb82b4... |
 | ⬜ | P0-06 | Core reading (4 papers) | | |
 | ⬜ | P0-07 | Synopsis submitted | | |
-| ⬜ | P0-08 | Decide Power BI platform | | Choice: |
+| ✅ | P0-08 | Decide Power BI platform | 2026-10-04 | Native Power BI Desktop on Windows (D-015) |
 | ⬜ | P0-09 | Get college templates | | |
 | ✅ | P0-10 | Config & DB helpers + Makefile | 2026-10-05 | src/readmission/config.py, db.py, Makefile created and verified |
 
