@@ -11,7 +11,7 @@
 | Phase | Week | Tasks | Done | Status | % |
 |---|---|---|---|---|---|
 | P0 Setup & Planning | 1 | 10 | 8 | 🟨 | 80% |
-| P1 Ingestion & SQL | 1 | 7 | 0 | ⬜ | 0% |
+| P1 Ingestion & SQL | 1 | 7 | 7 | ✅ | 100% |
 | P2 Cleaning & Quality | 2 | 7 | 0 | ⬜ | 0% |
 | P3 EDA & Statistics | 3 | 10 | 0 | ⬜ | 0% |
 | P4 Features & Baselines | 4 | 8 | 0 | ⬜ | 0% |
@@ -19,9 +19,9 @@
 | P6 Scoring, Views & API | 6 | 9 | 0 | ⬜ | 0% |
 | P7 Power BI + Frontend | 7 | 9 | 0 | ⬜ (7B ⛔ awaiting designs) | 0% |
 | P8 Testing, Report & Viva | 8 | 9 | 0 | ⬜ | 0% |
-| **Total** | | **78** | **8** | | **10%** |
+| **Total** | | **78** | **15** | | **19%** |
 
-**Overall:** `[██░░░░░░░░░░░░░░░░░░] 10%`
+**Overall:** `[████░░░░░░░░░░░░░░░░] 19%`
 
 ### Key results (fill as they become available)
 | Metric | CV (train) | Validation | Test (final, once) |
@@ -34,7 +34,7 @@
 | Brier score | | | |
 | Decision threshold | — | | — |
 | High-tier observed readmission rate | — | | |
-| Base rate | | | |
+| Base rate | 11.16% | | |
 
 ---
 
@@ -55,13 +55,13 @@
 ## Phase 1 — Ingestion & SQL (Week 1: Oct 08 – Oct 11)
 | ✓ | ID | Task | Date | Notes |
 |---|---|---|---|---|
-| ⬜ | P1-01 | `sql/00_create_schemas.sql` | | |
-| ⬜ | P1-02 | `sql/01_raw_tables.sql` | | |
-| ⬜ | P1-03 | `ingest.py` (COPY into raw) | | rows loaded: |
-| ⬜ | P1-04 | `sql/02_dim_tables.sql` | | |
-| ⬜ | P1-05 | Load verification | | |
-| ⬜ | P1-06 | Notebook 01 data understanding | | |
-| ⬜ | P1-07 | `sql/04_ml_tables.sql` | | |
+| ✅ | P1-01 | `sql/00_create_schemas.sql` | 2026-10-05 | Created raw, staging, features, ml, analytics schemas |
+| ✅ | P1-02 | `sql/01_raw_tables.sql` | 2026-10-05 | raw.diabetic_data (50 TEXT cols), raw.ids_mapping created |
+| ✅ | P1-03 | `ingest.py` (COPY into raw) | 2026-10-05 | 101,766 encounters streamed via COPY; 68 mapping lines |
+| ✅ | P1-04 | `sql/02_dim_tables.sql` | 2026-10-05 | Populated staging.dim_* (admission_type=8, discharge=30, source=25) |
+| ✅ | P1-05 | Load verification | 2026-10-05 | Verified 101,766 encounters, 71,518 unique patients, 100% unique encounter_id |
+| ✅ | P1-06 | Notebook 01 data understanding | 2026-10-05 | Executed notebooks/01_data_understanding.ipynb (target=11.16% <30) |
+| ✅ | P1-07 | `sql/04_ml_tables.sql` | 2026-10-05 | Created ml.model_registry, ml.predictions, feature_importance, prediction_log |
 
 ## Phase 2 — Cleaning & Data Quality (Week 2: Oct 12 – Oct 18)
 | ✓ | ID | Task | Date | Notes |
