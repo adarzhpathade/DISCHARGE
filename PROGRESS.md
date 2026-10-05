@@ -10,7 +10,7 @@
 
 | Phase | Week | Tasks | Done | Status | % |
 |---|---|---|---|---|---|
-| P0 Setup & Planning | 1 | 10 | 5 | 🟨 | 50% |
+| P0 Setup & Planning | 1 | 10 | 6 | 🟨 | 60% |
 | P1 Ingestion & SQL | 1 | 7 | 0 | ⬜ | 0% |
 | P2 Cleaning & Quality | 2 | 7 | 0 | ⬜ | 0% |
 | P3 EDA & Statistics | 3 | 10 | 0 | ⬜ | 0% |
@@ -19,9 +19,9 @@
 | P6 Scoring, Views & API | 6 | 9 | 0 | ⬜ | 0% |
 | P7 Power BI + Frontend | 7 | 9 | 0 | ⬜ (7B ⛔ awaiting designs) | 0% |
 | P8 Testing, Report & Viva | 8 | 9 | 0 | ⬜ | 0% |
-| **Total** | | **78** | **5** | | **6%** |
+| **Total** | | **78** | **6** | | **8%** |
 
-**Overall:** `[██░░░░░░░░░░░░░░░░░░] 6%`
+**Overall:** `[██░░░░░░░░░░░░░░░░░░] 8%`
 
 ### Key results (fill as they become available)
 | Metric | CV (train) | Validation | Test (final, once) |
@@ -43,7 +43,7 @@
 |---|---|---|---|---|
 | ✅ | P0-01 | Initialise repo & folder structure | 2026-10-04 | Commit 13842d6; tree & .gitignore created |
 | ✅ | P0-02 | Python environment | 2026-10-05 | .venv (Python 3.13), requirements.txt, pyproject.toml; pip install -e . verified |
-| ⬜ | P0-03 | PostgreSQL 16 | | |
+| ✅ | P0-03 | PostgreSQL 16 | 2026-10-05 | Neon Postgres 18 project twilight-unit-85400243; DATABASE_URL in .env, connection verified |
 | ⬜ | P0-04 | Node.js & tooling | | |
 | ✅ | P0-05 | Download dataset | 2026-10-05 | 101,766 encounters; diabetic_data.csv sha256: 0689e7ec...; IDs_mapping.csv sha256: f1bb82b4... |
 | ⬜ | P0-06 | Core reading (4 papers) | | |

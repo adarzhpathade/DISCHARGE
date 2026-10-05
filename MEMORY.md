@@ -15,8 +15,8 @@
 | Repository | `https://github.com/adarzhpathade/DISCHARGE` (branch `main`) |
 | Dev OS | **Windows** (pwsh). Native Power BI Desktop available directly |
 | Current phase | Phase 0 — Setup & Planning (in progress) |
-| Completed tasks | `P0-01` Initialise repository & folder structure, `P0-02` Python environment (`.venv`, `requirements.txt`, `pyproject.toml`, editable install verified), `P0-05` Download dataset (UCI 296, 101,766 rows verified), `P0-08` Decide Power BI platform (native Windows Desktop, D-015), `P0-10` Config & DB helpers + Makefile (`config.py`, `db.py`, `Makefile`) |
-| Next task | `P0-03` PostgreSQL 16 |
+| Completed tasks | `P0-01` Initialise repository & folder structure, `P0-02` Python environment (`.venv`, `requirements.txt`, `pyproject.toml`, editable install verified), `P0-03` PostgreSQL (Neon Postgres 18 `twilight-unit-85400243`), `P0-05` Download dataset (UCI 296, 101,766 rows verified), `P0-08` Decide Power BI platform (native Windows Desktop, D-015), `P0-10` Config & DB helpers + Makefile (`config.py`, `db.py`, `Makefile`) |
+| Next task | `P1-01` Schema creation (`sql/00_create_schemas.sql`) |
 | Active model | none (`models/CURRENT` does not exist yet) |
 | Best val ROC-AUC so far | — |
 | Blockers | UI design references not yet supplied (`P7-05`) |
@@ -27,6 +27,7 @@
 
 | ID | Date | Decision | Why | Alternatives rejected |
 |---|---|---|---|---|
+| D-016 | 2026-10-05 | Database hosted on Neon Postgres (project: `twilight-unit-85400243`) | Zero local daemon/Docker overhead on Windows, serverless sleep/instant-wake prevents inactivity locking, standard PostgreSQL driver connection | Local Docker, local Windows PostgreSQL service, Supabase |
 | D-015 | 2026-10-04 | Host OS confirmed as Windows (pwsh) | Host environment is Windows with Python 3.13, Node 24, Git 2.53. Allows native Power BI Desktop execution | macOS assumptions in earlier draft |
 | D-014 | 2026-10-04 | Local study/presentation guides kept uncommitted in `.gitignore` | `docs/TEACHER_EXPLANATION_GUIDE.md` and `docs/OPERATIONAL_FLOW.md` are for student viva and team explanations; user requested they not be pushed | Committing presentation guides to public git |
 | D-013 | 2026-10-04 | Project named **DISCHARGE** (repo: `adarzhpathade/DISCHARGE`) | Acronym matches clinical domain: Diabetic Inpatient Stratification and Clinical Decision-Support System | CareCast, ReAdmitIQ, generic Hospital Readmission |
