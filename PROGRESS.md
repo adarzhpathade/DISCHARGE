@@ -12,16 +12,16 @@
 |---|---|---|---|---|---|
 | P0 Setup & Planning | 1 | 10 | 8 | 🟨 | 80% |
 | P1 Ingestion & SQL | 1 | 7 | 7 | ✅ | 100% |
-| P2 Cleaning & Quality | 2 | 7 | 0 | ⬜ | 0% |
+| P2 Cleaning & Quality | 2 | 7 | 7 | ✅ | 100% |
 | P3 EDA & Statistics | 3 | 10 | 0 | ⬜ | 0% |
 | P4 Features & Baselines | 4 | 8 | 0 | ⬜ | 0% |
 | P5 Tuning & Evaluation | 5 | 9 | 0 | ⬜ | 0% |
 | P6 Scoring, Views & API | 6 | 9 | 0 | ⬜ | 0% |
 | P7 Power BI + Frontend | 7 | 9 | 0 | ⬜ (7B ⛔ awaiting designs) | 0% |
 | P8 Testing, Report & Viva | 8 | 9 | 0 | ⬜ | 0% |
-| **Total** | | **78** | **15** | | **19%** |
+| **Total** | | **78** | **22** | | **28%** |
 
-**Overall:** `[████░░░░░░░░░░░░░░░░] 19%`
+**Overall:** `[██████░░░░░░░░░░░░░░] 28%`
 
 ### Key results (fill as they become available)
 | Metric | CV (train) | Validation | Test (final, once) |
@@ -34,7 +34,7 @@
 | Brier score | | | |
 | Decision threshold | — | | — |
 | High-tier observed readmission rate | — | | |
-| Base rate | 11.16% | | |
+| Base rate | 11.16% (raw) / 11.39% (staging) | | |
 
 ---
 
@@ -66,13 +66,13 @@
 ## Phase 2 — Cleaning & Data Quality (Week 2: Oct 12 – Oct 18)
 | ✓ | ID | Task | Date | Notes |
 |---|---|---|---|---|
-| ⬜ | P2-01 | Quality audit SQL | | |
-| ⬜ | P2-02 | `sql/03_staging_encounters.sql` (C1–C13) | | rows after: |
-| ⬜ | P2-03 | Notebook 02 validation | | |
-| ⬜ | P2-04 | `quality.py` → data_quality_report.md | | |
-| ⬜ | P2-05 | `tests/test_cleaning.py` | | |
-| ⬜ | P2-06 | Update data dictionary | | |
-| ⬜ | P2-07 | Literature: ML papers | | |
+| ✅ | P2-01 | Quality audit SQL | 2026-10-06 | `sql/99_quality_checks.sql` assertions & audit views verified; CSVs in `reports/eda/` |
+| ✅ | P2-02 | `sql/03_staging_encounters.sql` (C1–C13) | 2026-10-06 | Cleaned rows: 99,340 (dropped 3 gender, 2,423 hospice/expired); verified in Postgres |
+| ✅ | P2-03 | Notebook 02 validation | 2026-10-06 | `notebooks/02_data_quality_cleaning.ipynb` executed top-to-bottom with all assertions |
+| ✅ | P2-04 | `quality.py` → data_quality_report.md | 2026-10-06 | `src/readmission/data/quality.py` generated `reports/eda/data_quality_report.md` |
+| ✅ | P2-05 | `tests/test_cleaning.py` | 2026-10-06 | 6 unit and DB integration tests passing (pytest) |
+| ✅ | P2-06 | Update data dictionary | 2026-10-06 | Updated `docs/data_dictionary.md` with measured raw missingness & dim descriptions |
+| ✅ | P2-07 | Literature: ML papers | 2026-10-06 | Verified Huang 2021 & Artetxe 2018 in `literature/annotated_bibliography.md` |
 
 ## Phase 3 — EDA & Statistics (Week 3: Oct 19 – Oct 25)
 | ✓ | ID | Task | Date | Notes |
@@ -158,7 +158,7 @@
 | # | Milestone | Target date | Achieved |
 |---|---|---|---|
 | M1 | Data in PostgreSQL + synopsis submitted | 2026-10-11 | |
-| M2 | Clean staging table + quality report | 2026-10-18 | |
+| M2 | Clean staging table + quality report | 2026-10-18 | 2026-10-06 |
 | M3 | EDA & stats complete | 2026-10-25 | |
 | M4 | Baselines beat dummy, no leakage | 2026-11-01 | |
 | M5 | Final model evaluated on test | 2026-11-08 | |

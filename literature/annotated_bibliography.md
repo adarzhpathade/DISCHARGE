@@ -57,15 +57,18 @@
 ## C. Machine learning for readmission
 
 ### [Huang2021] ML for readmission: scoping review
-- **Citation:** Y. Huang, A. Talwar, S. Chatterjee, R. R. Aparasu, "Application of machine learning in predicting hospital readmissions: a scoping review of the literature," *BMC Medical Research Methodology*, vol. 21, Art. 96, 2021. doi:10.1186/s12874-021-01284-z
-- **Verified:** ✅
-- **Summary:** Maps ML approaches, data sources, and evaluation practices in readmission prediction studies.
-- **Relevance:** Basis for Chapter 2.3. Supports our algorithm choices and evaluation metrics.
+- **Citation:** Y. Huang, A. Talwar, S. Chatterjee, R. R. Aparasu, "Application of machine learning in predicting hospital readmissions: a scoping review of the literature," *BMC Medical Research Methodology*, vol. 21, no. 1, Art. 96, pp. 1–13, 2021. doi:10.1186/s12874-021-01284-z
+- **Verified:** ✅ (title, journal, volume, article ID, DOI, PMC8117326)
+- **Summary:** Maps machine learning methodologies, data sources, predictors, and validation strategies in 62 hospital readmission prediction studies. Identifies standard modeling workflows, reporting gaps, and class imbalance approaches.
+- **Key findings / numbers:** Logistic Regression and Tree Ensembles (Random Forest, Gradient Boosting) were the most frequently applied architectures. Discriminative ability (ROC-AUC) across administrative data consistently centered between 0.62 and 0.72. Highlighted pervasive reporting omissions in class imbalance handling and calibration.
+- **Relevance:** Serves as the primary methodological reference for Chapter 2.3. Justifies our choice of scikit-learn models (LogisticRegression, RandomForest, HistGradientBoosting) and reinforces the necessity of reporting PR-AUC, calibration curves, and Brier scores.
 
 ### [Artetxe2018] Predictive models for readmission: methods review
-- **Citation:** A. Artetxe, A. Beristain, M. Graña, "Predictive models for hospital readmission risk: A systematic review of methods," *Computer Methods and Programs in Biomedicine*, vol. 164, pp. 49–64, 2018.
-- **Verified:** 🔎
-- **Relevance:** Method comparison (LR vs tree ensembles vs others). Discusses class imbalance.
+- **Citation:** A. Artetxe, A. Beristain, M. Graña, "Predictive models for hospital readmission risk: A systematic review of methods," *Computer Methods and Programs in Biomedicine*, vol. 164, pp. 49–64, Oct. 2018. doi:10.1016/j.cmpb.2018.06.006
+- **Verified:** ✅ (journal, volume, pages, year, DOI)
+- **Summary:** Comprehensive review of data science and statistical pipelines for hospital readmission risk, surveying 41 studies. Categorizes data sources into claims/administrative, EHR, and survey data.
+- **Key findings / numbers:** 30-day readmission is the predominant prediction horizon. The target condition is intrinsically imbalanced (typically 8–15% base rate). Tree ensembles and nonlinear models provide moderate gains over baseline regression models, but operational deployment requires threshold tuning and calibrated probabilities rather than raw 0.5 decision thresholds.
+- **Relevance:** Validates our clinical framing as a decision-support tool, supports threshold optimization for recall (F2), and informs our discussion of class imbalance in Chapter 4.
 
 ### [Futoma2015] Comparison of models for early readmission
 - **Citation:** J. Futoma, J. Morris, J. Lucas, "A comparison of models for predicting early hospital readmissions," *Journal of Biomedical Informatics*, vol. 56, pp. 229–238, 2015.

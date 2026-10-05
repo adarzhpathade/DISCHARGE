@@ -10,13 +10,13 @@
 
 | Field | Value |
 |---|---|
-| Last updated | 2026-10-05 |
+| Last updated | 2026-10-06 |
 | Project name | **DISCHARGE** (Diabetic Inpatient Stratification and Clinical Decision-Support System) |
 | Repository | `https://github.com/adarzhpathade/DISCHARGE` (branch `main`) |
 | Dev OS | **Windows** (pwsh). Native Power BI Desktop available directly |
-| Current phase | Phase 2 — Data Cleaning & Quality (ready to start) |
-| Completed tasks | `P0-01` to `P0-06`, `P0-08`, `P0-10` (Phase 0); `P1-01` to `P1-07` (Phase 1 complete) |
-| Next task | `P2-01` Quality audit SQL (`sql/99_quality_checks.sql`) & `P2-02` Staging encounters (`sql/03_staging_encounters.sql`) |
+| Current phase | Phase 3 — Exploratory Data Analysis & Statistical Analysis (ready to start) |
+| Completed tasks | `P0-01` to `P0-06`, `P0-08`, `P0-10` (Phase 0); `P1-01` to `P1-07` (Phase 1); `P2-01` to `P2-07` (Phase 2 complete) |
+| Next task | `P3-01` Univariate analysis (`reports/figures/03_*.png`) & `P3-04` ICD-9 diagnosis grouping |
 | Active model | none (`models/CURRENT` does not exist yet) |
 | Best val ROC-AUC so far | — |
 | Blockers | UI design references not yet supplied (`P7-05`) |
@@ -27,6 +27,7 @@
 
 | ID | Date | Decision | Why | Alternatives rejected |
 |---|---|---|---|---|
+| D-018 | 2026-10-06 | Explicit DDL + INSERT for `staging.encounters` with clinical check constraints | Strict data typing, primary key indexing on `encounter_id`, and validation constraints on numeric ranges and categories | Implicit types from CREATE TABLE AS SELECT |
 | D-017 | 2026-10-05 | Ingestion via psycopg driver COPY and dynamic SQL parsing of stacked dim tables | Streaming COPY from STDIN loads 101,766 rows into PostgreSQL in ~15s without type distortion; SQL bounds separate the 3 stacked lookup tables reliably | pandas to_sql (slow, alters column types), manual psql CLI |
 | D-016 | 2026-10-05 | Database hosted on Neon Postgres (project: `twilight-unit-85400243`) | Zero local daemon/Docker overhead on Windows, serverless sleep/instant-wake prevents inactivity locking, standard PostgreSQL driver connection | Local Docker, local Windows PostgreSQL service, Supabase |
 | D-015 | 2026-10-04 | Host OS confirmed as Windows (pwsh) | Host environment is Windows with Python 3.13, Node 24, Git 2.53. Allows native Power BI Desktop execution | macOS assumptions in earlier draft |
@@ -60,8 +61,11 @@
 - **G-009 — Windows PowerShell execution.** Shell commands must use PowerShell syntax (`New-Item`, `;` delimiter instead of `&&`, Windows paths).
 - **G-010 — Dataset SHA-256 and verified row count.** Downloaded from UCI repository (id 296). `diabetic_data.csv`: 101,766 rows (101,767 lines with header), 19,159,383 bytes, SHA-256: `0689e7ec031237dc63031b938805c48377748761a3b26acab621567afa24df97`. `IDs_mapping.csv`: 68 lines, 2,547 bytes, SHA-256: `f1bb82b471cb34649352597572c9b1fb00bd27f77b9f5a22a03dc3eb1039749e`. Note: the zip file contained `IDS_mapping.csv` with capital 'S', extracted as canonical `IDs_mapping.csv`.
 - **G-011 — Stacking lookup tables in `IDs_mapping.csv`.** Staging lookup dimensions (`staging.dim_admission_type`, `staging.dim_discharge_disposition`, `staging.dim_admission_source`) are populated dynamically from `raw.ids_mapping` by locating the line numbers where section header strings occur and filtering numerical IDs (`col1 ~ '^[0-9]+$'`).
+- **G-012 — Matplotlib headless backend on Windows.** Matplotlib defaults to `tkagg` on Windows, which attempts to spawn a GUI Tkinter root window that blocks headless background subprocesses. Always specify `matplotlib.use('Agg')` in scripts and headless notebook runners.
+- **G-013 — Tornado / ZMQ Proactor loop deadlock on Windows (Python 3.13).** When running IPython `NotebookClient` over ZMQ on Windows Python 3.13, the default `ProactorEventLoop` can deadlock on IPC socket polling. Use in-process `InteractiveShell` execution or `WindowsSelectorEventLoopPolicy` for deterministic cell execution.
+- **G-014 — Staging cleaning row impact verification.** Exactly 2,426 rows were excluded from raw (101,766 encounters) to staging (99,340 encounters): 3 rows with `gender = 'Unknown/Invalid'` (Rule C3) and 2,423 rows with hospice/expired discharge dispositions (Rule C4). Staging readmission prevalence is 11.39% (11,314 positive `<30` cases across 69,987 unique patients).
 
-*(Add new gotchas here as they are discovered: G-012, …)*
+*(Add new gotchas here as they are discovered: G-015, …)*
 
 ---
 
