@@ -15,7 +15,7 @@
 | Repository | `https://github.com/adarzhpathade/DISCHARGE` (branch `main`) |
 | Dev OS | **Windows** (pwsh). Native Power BI Desktop available directly |
 | Current phase | Phase 0 — Setup & Planning (in progress) |
-| Completed tasks | `P0-01` Initialise repository & folder structure, `P0-02` Python environment (`.venv`, `requirements.txt`, `pyproject.toml`, editable install verified) |
+| Completed tasks | `P0-01` Initialise repository & folder structure, `P0-02` Python environment (`.venv`, `requirements.txt`, `pyproject.toml`, editable install verified), `P0-05` Download dataset (UCI 296, 101,766 rows verified) |
 | Next task | `P0-03` PostgreSQL 16 |
 | Active model | none (`models/CURRENT` does not exist yet) |
 | Best val ROC-AUC so far | — |
@@ -56,8 +56,9 @@
 - **G-007 — ~~Broken system Python on this Mac.~~** Superseded by D-015: Host is Windows with Python 3.13.15 installed.
 - **G-008 — Git ignore directory traversal trap.** Simple `data/**` excludes directory paths before evaluating un-ignore patterns `!data/**/.gitkeep`. The pattern must allow subdirectories `!data/*/` and `!data/**/` while ignoring nested content files.
 - **G-009 — Windows PowerShell execution.** Shell commands must use PowerShell syntax (`New-Item`, `;` delimiter instead of `&&`, Windows paths).
+- **G-010 — Dataset SHA-256 and verified row count.** Downloaded from UCI repository (id 296). `diabetic_data.csv`: 101,766 rows (101,767 lines with header), 19,159,383 bytes, SHA-256: `0689e7ec031237dc63031b938805c48377748761a3b26acab621567afa24df97`. `IDs_mapping.csv`: 68 lines, 2,547 bytes, SHA-256: `f1bb82b471cb34649352597572c9b1fb00bd27f77b9f5a22a03dc3eb1039749e`. Note: the zip file contained `IDS_mapping.csv` with capital 'S', extracted as canonical `IDs_mapping.csv`.
 
-*(Add new gotchas here as they are discovered: G-010, …)*
+*(Add new gotchas here as they are discovered: G-011, …)*
 
 ---
 

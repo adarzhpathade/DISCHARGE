@@ -10,7 +10,7 @@
 
 | Phase | Week | Tasks | Done | Status | % |
 |---|---|---|---|---|---|
-| P0 Setup & Planning | 1 | 10 | 2 | 🟨 | 20% |
+| P0 Setup & Planning | 1 | 10 | 3 | 🟨 | 30% |
 | P1 Ingestion & SQL | 1 | 7 | 0 | ⬜ | 0% |
 | P2 Cleaning & Quality | 2 | 7 | 0 | ⬜ | 0% |
 | P3 EDA & Statistics | 3 | 10 | 0 | ⬜ | 0% |
@@ -19,9 +19,9 @@
 | P6 Scoring, Views & API | 6 | 9 | 0 | ⬜ | 0% |
 | P7 Power BI + Frontend | 7 | 9 | 0 | ⬜ (7B ⛔ awaiting designs) | 0% |
 | P8 Testing, Report & Viva | 8 | 9 | 0 | ⬜ | 0% |
-| **Total** | | **78** | **2** | | **3%** |
+| **Total** | | **78** | **3** | | **4%** |
 
-**Overall:** `[█░░░░░░░░░░░░░░░░░░░] 3%`
+**Overall:** `[█░░░░░░░░░░░░░░░░░░░] 4%`
 
 ### Key results (fill as they become available)
 | Metric | CV (train) | Validation | Test (final, once) |
@@ -45,7 +45,7 @@
 | ✅ | P0-02 | Python environment | 2026-10-05 | .venv (Python 3.13), requirements.txt, pyproject.toml; pip install -e . verified |
 | ⬜ | P0-03 | PostgreSQL 16 | | |
 | ⬜ | P0-04 | Node.js & tooling | | |
-| ⬜ | P0-05 | Download dataset | | SHA-256: |
+| ✅ | P0-05 | Download dataset | 2026-10-05 | 101,766 encounters; diabetic_data.csv sha256: 0689e7ec...; IDs_mapping.csv sha256: f1bb82b4... |
 | ⬜ | P0-06 | Core reading (4 papers) | | |
 | ⬜ | P0-07 | Synopsis submitted | | |
 | ⬜ | P0-08 | Decide Power BI platform | | Choice: |
