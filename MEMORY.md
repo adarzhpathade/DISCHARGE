@@ -15,7 +15,7 @@
 | Repository | `https://github.com/adarzhpathade/DISCHARGE` (branch `main`) |
 | Dev OS | **Windows** (pwsh). Native Power BI Desktop available directly |
 | Current phase | Phase 0 — Setup & Planning (in progress) |
-| Completed tasks | `P0-01` Initialise repository & folder structure, `P0-02` Python environment (`.venv`, `requirements.txt`, `pyproject.toml`, editable install verified), `P0-05` Download dataset (UCI 296, 101,766 rows verified) |
+| Completed tasks | `P0-01` Initialise repository & folder structure, `P0-02` Python environment (`.venv`, `requirements.txt`, `pyproject.toml`, editable install verified), `P0-05` Download dataset (UCI 296, 101,766 rows verified), `P0-10` Config & DB helpers + Makefile (`config.py`, `db.py`, `Makefile`) |
 | Next task | `P0-03` PostgreSQL 16 |
 | Active model | none (`models/CURRENT` does not exist yet) |
 | Best val ROC-AUC so far | — |
