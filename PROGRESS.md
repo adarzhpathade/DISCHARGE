@@ -77,16 +77,16 @@
 ## Phase 3 — EDA & Statistics (Week 3: Oct 19 – Oct 25)
 | ✓ | ID | Task | Date | Notes |
 |---|---|---|---|---|
-| ⬜ | P3-01 | Univariate analysis | | |
-| ⬜ | P3-02 | Categorical vs readmission rate | | |
-| ⬜ | P3-03 | Numeric vs target | | |
-| ⬜ | P3-04 | `icd9.py` + tests | | |
-| ⬜ | P3-05 | Diagnosis analysis | | |
-| ⬜ | P3-06 | Correlation & multicollinearity | | |
-| ⬜ | P3-07 | Statistical tests | | |
-| ⬜ | P3-08 | Odds ratios | | |
-| ⬜ | P3-09 | EDA summary | | |
-| ⬜ | P3-10 | SQL analytics prototypes | | |
+| ✅ | P3-01 | Univariate analysis | 2026-10-06 | 14 figures in `reports/figures/03_*.png`, target imbalance (11.39%) verified |
+| ✅ | P3-02 | Categorical vs readmission rate | 2026-10-06 | Wilson 95% CIs for age, race, gender, admission/discharge, labs, meds |
+| ✅ | P3-03 | Numeric vs target | 2026-10-06 | Boxplots, violin plots, and binned risk curves across utilization & LOS |
+| ✅ | P3-04 | `icd9.py` + tests | 2026-10-06 | `src/readmission/features/icd9.py` + 13 unit tests passing in `tests/test_icd9.py` |
+| ✅ | P3-05 | Diagnosis analysis | 2026-10-06 | Strack et al. 9 groups analyzed; top 15 primary diagnoses visualized |
+| ✅ | P3-06 | Correlation & multicollinearity | 2026-10-06 | Spearman heatmap generated; all pairwise collinearities < 0.45 (low VIF) |
+| ✅ | P3-07 | Statistical tests | 2026-10-06 | 21 tests in `reports/eda/stats_tests.csv` (Chi-square, Cramér's V, Mann-Whitney U, Bonferroni) |
+| ✅ | P3-08 | Odds ratios | 2026-10-06 | Multivariable logistic regression fitted; ORs + 95% CIs + Strack HbA1c replication |
+| ✅ | P3-09 | EDA summary | 2026-10-06 | Top 10 clinical findings compiled in `reports/eda/eda_summary.md` |
+| ✅ | P3-10 | SQL analytics prototypes | 2026-10-06 | 10 `analytics.vw_*` views written to `sql/05_analytics_views.sql` and deployed to DB |
 
 ## Phase 4 — Features & Baselines (Week 4: Oct 26 – Nov 01)
 | ✓ | ID | Task | Date | Notes |

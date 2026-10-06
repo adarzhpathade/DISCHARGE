@@ -14,9 +14,9 @@
 | Project name | **DISCHARGE** (Diabetic Inpatient Stratification and Clinical Decision-Support System) |
 | Repository | `https://github.com/adarzhpathade/DISCHARGE` (branch `main`) |
 | Dev OS | **Windows** (pwsh). Native Power BI Desktop available directly |
-| Current phase | Phase 3 — Exploratory Data Analysis & Statistical Analysis (ready to start) |
-| Completed tasks | `P0-01` to `P0-06`, `P0-08`, `P0-10` (Phase 0); `P1-01` to `P1-07` (Phase 1); `P2-01` to `P2-07` (Phase 2 complete) |
-| Next task | `P3-01` Univariate analysis (`reports/figures/03_*.png`) & `P3-04` ICD-9 diagnosis grouping |
+| Current phase | Phase 4 — Feature Engineering & Baseline Models (ready to start) |
+| Completed tasks | `P0-01` to `P0-06`, `P0-08`, `P0-10` (Phase 0); `P1-01` to `P1-07` (Phase 1); `P2-01` to `P2-07` (Phase 2); `P3-01` to `P3-10` (Phase 3 complete) |
+| Next task | `P4-01` Feature engineering (`build.py`) & `P4-02` Patient-grouped split (`split.py`) |
 | Active model | none (`models/CURRENT` does not exist yet) |
 | Best val ROC-AUC so far | — |
 | Blockers | UI design references not yet supplied (`P7-05`) |
@@ -27,6 +27,8 @@
 
 | ID | Date | Decision | Why | Alternatives rejected |
 |---|---|---|---|---|
+| D-020 | 2026-10-06 | Deployed 10 analytical views to `analytics.vw_*` in PostgreSQL | Decouples reporting and Power BI ingestion from raw tables; precomputes group aggregations directly in DB | Querying complex raw tables directly in Power BI / API |
+| D-019 | 2026-10-06 | Implemented ICD-9 classification module (`src/readmission/features/icd9.py`) | Compresses thousands of high-cardinality diagnosis codes into 9 clinical categories + Missing (Strack et al. 2014); handles decimal codes, numeric prefixes, and V/E codes | Keeping 900+ raw ICD-9 codes or one-hot encoding without clinical grouping |
 | D-018 | 2026-10-06 | Explicit DDL + INSERT for `staging.encounters` with clinical check constraints | Strict data typing, primary key indexing on `encounter_id`, and validation constraints on numeric ranges and categories | Implicit types from CREATE TABLE AS SELECT |
 | D-017 | 2026-10-05 | Ingestion via psycopg driver COPY and dynamic SQL parsing of stacked dim tables | Streaming COPY from STDIN loads 101,766 rows into PostgreSQL in ~15s without type distortion; SQL bounds separate the 3 stacked lookup tables reliably | pandas to_sql (slow, alters column types), manual psql CLI |
 | D-016 | 2026-10-05 | Database hosted on Neon Postgres (project: `twilight-unit-85400243`) | Zero local daemon/Docker overhead on Windows, serverless sleep/instant-wake prevents inactivity locking, standard PostgreSQL driver connection | Local Docker, local Windows PostgreSQL service, Supabase |
@@ -63,9 +65,9 @@
 - **G-011 — Stacking lookup tables in `IDs_mapping.csv`.** Staging lookup dimensions (`staging.dim_admission_type`, `staging.dim_discharge_disposition`, `staging.dim_admission_source`) are populated dynamically from `raw.ids_mapping` by locating the line numbers where section header strings occur and filtering numerical IDs (`col1 ~ '^[0-9]+$'`).
 - **G-012 — Matplotlib headless backend on Windows.** Matplotlib defaults to `tkagg` on Windows, which attempts to spawn a GUI Tkinter root window that blocks headless background subprocesses. Always specify `matplotlib.use('Agg')` in scripts and headless notebook runners.
 - **G-013 — Tornado / ZMQ Proactor loop deadlock on Windows (Python 3.13).** When running IPython `NotebookClient` over ZMQ on Windows Python 3.13, the default `ProactorEventLoop` can deadlock on IPC socket polling. Use in-process `InteractiveShell` execution or `WindowsSelectorEventLoopPolicy` for deterministic cell execution.
-- **G-014 — Staging cleaning row impact verification.** Exactly 2,426 rows were excluded from raw (101,766 encounters) to staging (99,340 encounters): 3 rows with `gender = 'Unknown/Invalid'` (Rule C3) and 2,423 rows with hospice/expired discharge dispositions (Rule C4). Staging readmission prevalence is 11.39% (11,314 positive `<30` cases across 69,987 unique patients).
+-**G-015 — Large sample size effect on statistical p-values.** With N=99,340 clinical encounters, standard hypothesis tests (Chi-square, Mann-Whitney U) achieve immense statistical power, yielding near-zero p-values ($p < 10^{-20}$) even for small distributional shifts. Effect size metrics (Cramér's V for categorical, rank-biserial $r$ for numeric) and multivariable adjusted Odds Ratios are essential to distinguish true clinical effect drivers from statistical sample-size artifacts.
 
-*(Add new gotchas here as they are discovered: G-015, …)*
+*(Add new gotchas here as they are discovered: G-016, …)*
 
 ---
 

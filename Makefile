@@ -65,4 +65,7 @@ web:
 test:
 	pytest tests backend/tests
 
+eda:
+	python -m readmission.eda_pipeline
+
 pipeline: ingest stage features train evaluate score views export-bi
